@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quote generator</title>
+
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color :darkcyan;
+            font-family: 'Arial', sans-serif;
+        }
+        #quote-container {
+            text-align: center;
+        }
+
+        #quote {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        #new-quote-btn {
+            padding: 20px 40px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color:blanchedalmond;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="quote-container">
+        <div id="quote">Click the button to get a random quote!</div>
+        <button id="new-quote-btn">New Quote</button>
+    </div>
+    <script>
+         const quotes = [
+            "The only way to do great work is to love what you do. - Steve Jobs",
+            "Life is what happens when you're busy making other plans. - John Lennon",
+            "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
+            "Success is not final, failure is not fatal: It is the courage to continue that counts. - Winston Churchill",
+            "In the end, we will remember not the words of our enemies, but the silence of our friends. - Martin Luther King Jr."
+        ];
+        function getRandomQuote() {
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        return quotes[randomIndex];
+        }    
+        document.getElementById('quote').textContent = getRandomQuote();
+
+        document.getElementById('new-quote-btn').addEventListener('click', function() {
+        document.getElementById('quote').textContent = getRandomQuote();
+        });
+
+    </script>
+</body>
+</html>
